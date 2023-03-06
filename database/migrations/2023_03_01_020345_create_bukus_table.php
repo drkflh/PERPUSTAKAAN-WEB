@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('pengarang');
             $table->string('penerbit');
             $table->string('image');
+            $table->date('tanggal_terbit');
+            $table->text('deskripsi');
             $table->timestamps();
         });
     }

@@ -18,10 +18,11 @@ use App\Http\Controllers\WelcomeController;
 
 
 Auth::routes();
-Route::get('/home', [BukuController::class, 'index'])->name('buku.index');
 Route::get('/', [BukuController::class, 'indexPublic'])->name('buku.public.index');
 Route::get('/bukus/{id}', [BukuController::class, 'showPublic'])->name('buku.public.show');
 
 Route::middleware(['auth'])->group(function () {
+    Route::get('/home', [BukuController::class, 'index'])->name('buku.index');
+    Route::get('/buku/export/pdf', [BukuController::class, 'exportPdf'])->name('buku.export');
     Route::resource('buku', BukuController::class);
 });
